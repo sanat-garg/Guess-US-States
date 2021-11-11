@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+<input type="text" name="" id="input" style="position: absolute;width: 40%;left: 30%;top: 47.5%;height: 5%;border-radius: 50px;box-shadow: 0px 0px 7px grey;border:0px;outline: none;"><input type="submit" id="btn" onclick="check()" name="" style="display: none;" >
+<ul id="ul"></ul>
+<p id="count"></p>
+</body>
+</html>
+<script type="text/javascript">
+	window.addEventListener('keydown', function(e) {
+    if (e.keyCode == 13) {
+        // add your code here.
+        document.getElementById('btn').click()
+    }
+});
+			var array = [ "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+	var arraytwo = [ "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+	var clicks = 0;
+	function check(){
+	var input = document.getElementById('input').value;
+	
+	
+	if(array.includes(input)){
+
+		var li = document.createElement('li');
+		var num = array.indexOf(input);
+		array = array.filter(e => e !== input);
+		var r = Math.floor(Math.random() * 255);  
+		var g = Math.floor(Math.random() * 255);
+		
+		if(1 == 1){
+			clicks++;
+		}
+		if(clicks == 50){
+			alert("You Win");
+			window.location = "file:///C:/Users/Sanat%20Garg/Desktop/HTML/Guess%20US%20States/index.html";
+		}  
+		document.getElementById('count').innerHTML = clicks;
+		var b = Math.floor(Math.random() * 255);
+		var top = Math.floor(Math.random() * 40);  	
+		li.innerHTML = input;
+		li.style.background = 'rgb('+r+','+g+','+b+')';
+
+		var ul = document.getElementById('ul');
+		document.body.appendChild(li);
+
+	}
+	else if((arraytwo.includes(input))&&(! array.includes(input))){
+		alert("State Already Written")
+	}
+	else{
+		alert("Not Found")
+	}
+}
+</script>
+<style type="text/css">
+	li{
+		font-family: 'Montserrat', "Helvetica Neue", 'Helvetica', Arial, sans-serif;list-style-type: none;display: inline-block;padding: 11px 13px;border-radius: 15px;color: white;font-weight: 600;margin: 10px;
+	}
+	input{
+			font-family: 'Montserrat', "Helvetica Neue", 'Helvetica', Arial, sans-serif;
+			font-size: 1.2em;padding: 0px 10px
+	}
+	p{
+		font-family: 'Montserrat', "Helvetica Neue", 'Helvetica', Arial, sans-serif;position: absolute;bottom: 10px;right: 30px;font-size: 1.5em
+	}
+</style>
